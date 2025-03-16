@@ -1,5 +1,7 @@
+publish: build push
+
 build:
-	docker buildx build --platform linux/amd64 -t registry.digitalocean.com/seaburr/aaas:latest .
+	docker buildx build --platform linux/amd64,linux/arm64 -t registry.digitalocean.com/seaburr/aaas:latest .
 
 push:
 	docker push registry.digitalocean.com/seaburr/aaas:latest
