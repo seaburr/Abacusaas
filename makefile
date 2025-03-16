@@ -2,7 +2,7 @@ build:
 	docker build -t aaas:latest .
 
 run:
-	docker run --name abacus -d -p 5000:5000 aaas:latest
+	docker run --name abacus -d -p 8000:8000 aaas:latest
 
 stop:
 	docker stop abacus

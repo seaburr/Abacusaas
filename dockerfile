@@ -1,6 +1,11 @@
-FROM python:3.8.7
+FROM python:3.13-slim-bullseye
+
 RUN pip install flask
+
 COPY . /app
-EXPOSE 5000
+
+EXPOSE 8000
+
 ENTRYPOINT ["python"]
+
 CMD ["./app/src/web.py"]
