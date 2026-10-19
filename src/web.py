@@ -1,4 +1,7 @@
+import os
+
 from flask import Flask
+
 from abacus import Abacus
 
 app = Flask(__name__)
@@ -21,4 +24,6 @@ def add_value(value):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8000)
+    # Local dev only; the container runs gunicorn.
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', '8080')),
+            debug=os.environ.get('FLASK_DEBUG') == '1')
